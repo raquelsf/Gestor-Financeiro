@@ -9,6 +9,7 @@ angular.module('Financas').component('valueBox' ,{
   controller: [
     'gridSystem',
     function(gridSystem){
+
       this.$onInit = () =>  this.gridClasses = gridSystem.toCssClasses(this.grid)
     }
   ],
@@ -19,6 +20,7 @@ angular.module('Financas').component('valueBox' ,{
         <h3>{{ $ctrl.value }}</h3>
         <p>{{ $ctrl.text }}</p>
       </div>
+
       <div class="icon">
         <i class="fa {{ $ctrl.iconClass }}"></i>
       </div>
