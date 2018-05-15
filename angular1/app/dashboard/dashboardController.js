@@ -1,13 +1,11 @@
-angular.module('api').controller('DashboardCtrl', [
+angular.module('Financas').controller('DashboardCtrl', [
   '$http',
-  'consts',
   DashboardController
 ])
-
-function DashboardController($http, consts) {
+function DashboardController($http) {
   const vm = this
   vm.getSummary = function() {
-    const url = `${consts.apiUrl}/billingSummary`;
+    const url = 'http://localhost:3003/api/billingSummary';
     $http.get(url).then(function(response) {
       const {credit = 0, debt = 0} = response.data
       vm.credit = credit
@@ -15,6 +13,5 @@ function DashboardController($http, consts) {
       vm.total = credit - debt
     })
   }
-
   vm.getSummary()
 }
